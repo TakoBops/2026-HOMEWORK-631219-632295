@@ -6,13 +6,14 @@ public class Labirinto {
 	
 	private Stanza stanzaIniziale;
 	private Stanza stanzaVincente;
-
+	private Stanza stanzaCorrente;
 	/**
 	 * Costruttore della classe Labirinto.
 	 * Chiama il metodo per generare le stanze e i loro collegamenti.
 	 */
 	public Labirinto() {
 		this.creaStanze();
+		this.stanzaCorrente = this.getStanzaIniziale();
 	}
 
 	/**
@@ -54,6 +55,13 @@ public class Labirinto {
         this.stanzaVincente = biblioteca;;
     }
 
+	public void setStanzaCorrente(Stanza stanzaCorrente) {
+		this.stanzaCorrente = stanzaCorrente;
+	}
+
+	public Stanza getStanzaCorrente() {
+		return this.stanzaCorrente;
+	}
 
 	public Stanza getStanzaVincente() {
 		return stanzaVincente;

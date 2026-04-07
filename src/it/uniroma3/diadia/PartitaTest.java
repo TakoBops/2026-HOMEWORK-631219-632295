@@ -14,7 +14,7 @@ public class PartitaTest {
 
     @Test
     public void testIsFinitaCfuFiniti() {
-        partita.setCfu(0);
+        partita.getGiocatore().setCfu(0);
         assertTrue(partita.isFinita());
     }
 

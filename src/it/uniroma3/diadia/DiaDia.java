@@ -102,8 +102,8 @@ public class DiaDia {
 			this.console.consoleMsg("Direzione inesistente");
 		else {
 			this.partita.setStanzaCorrente(prossimaStanza);
-			int cfu = this.partita.getCfu();
-			this.partita.setCfu(cfu--);
+			int cfu = this.partita.getGiocatore().getCfu();
+			this.partita.getGiocatore().setCfu(cfu--);;
 		}
 		this.console.consoleMsg(partita.getStanzaCorrente().getDescrizione());
 	}

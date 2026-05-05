@@ -14,6 +14,14 @@ import java.util.Scanner;
  */
 
 public class Comando {
+	package it.uniroma3.diadia.comandi;
+
+public interface Comando {
+    void esegui();
+    void setParametro(String parametro);
+    String getNome(); // Nuovo metodo richiesto
+    String getParametro(); // Nuovo metodo richiesto
+}
 
     private String nome;
     private String parametro;

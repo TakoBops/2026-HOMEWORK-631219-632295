@@ -1,5 +1,7 @@
 package it.uniroma3.diadia.attrezzi;
+
 import it.uniroma3.diadia.ambienti.Stanza;
+import java.util.Objects; // Necessario per l'hashCode
 
 /**
  * Una semplice classe che modella un attrezzo.
@@ -9,9 +11,9 @@ import it.uniroma3.diadia.ambienti.Stanza;
  *
  * @author  docente di POO
  * @see Stanza
- * @version base
+ * @version homework C
  */
-public class Attrezzo {
+public class Attrezzo implements Comparable<Attrezzo> {
 
 	private String nome;
 	private int peso;
@@ -46,8 +48,31 @@ public class Attrezzo {
 	 * Restituisce una rappresentazione stringa di questo attrezzo
 	 * @return la rappresentazione stringa
 	 */
+	@Override
 	public String toString() {
 		return this.getNome()+" ("+this.getPeso()+"kg)";
 	}
 
+	// =========================================================
+	// METODI AGGIUNTI PER L'HOMEWORK C (COLLECTIONS & SORTING)
+	// =========================================================
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Attrezzo attrezzo = (Attrezzo) o;
+		return this.getPeso() == attrezzo.getPeso() && this.getNome().equals(attrezzo.getNome());
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(nome, peso);
+	}
+
+	@Override
+	public int compareTo(Attrezzo a) {
+		// Ordinamento alfabetico di default per gli attrezzi
+		return this.getNome().compareTo(a.getNome());
+	}
 }

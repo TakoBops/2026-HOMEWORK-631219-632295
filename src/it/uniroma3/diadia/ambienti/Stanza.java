@@ -118,4 +118,40 @@ public class Stanza {
     public boolean hasAttrezzo(String nomeAttrezzo) {
 		for (Attrezzo a : this.attrezzi) {
 			if (a.getNome().equals(nomeAttrezzo)) {
-				return
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
+     * Restituisce l'attrezzo nomeAttrezzo se presente nella stanza.
+	 * @param nomeAttrezzo
+	 * @return l'attrezzo presente nella stanza.
+     * null se l'attrezzo non e' presente.
+	 */
+	public Attrezzo getAttrezzo(String nomeAttrezzo) {
+		for (Attrezzo a : this.attrezzi) {
+			if (a.getNome().equals(nomeAttrezzo)) {
+				return a;
+			}
+		}
+		return null;	
+	}
+
+	/**
+	 * Rimuove un attrezzo dalla stanza (ricerca in base al nome).
+	 * @param attrezzo l'oggetto attrezzo da rimuovere
+	 * @return true se l'attrezzo e' stato rimosso, false altrimenti
+	 */
+	public boolean removeAttrezzo(Attrezzo attrezzo) {
+		if (attrezzo != null) {
+			return this.attrezzi.remove(attrezzo); // La lista gestisce internamente lo scalamento degli elementi
+		}
+		return false;
+	}
+
+	public Set<String> getDirezioni() {
+	    return this.stanzeAdiacenti.keySet();
+    }
+}
